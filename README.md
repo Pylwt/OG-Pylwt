@@ -104,6 +104,12 @@ TrollingSection:NewButton("AK-47", "Click to get tool", function()
     game:GetObjects("rbxassetid://149948769")[1].Parent=game.Players.LocalPlayer.Backpack
 end)
 local TrollingSection = Trolling:NewSection("Broken Stuff")
+TrollingSection:NewButton("Server Message", "Send a fake server message", function()
+    player =  "Server"
+fakemsg = "Welcome Admin (c00lkidd) joined"
+message = "Hi                                                                                                                                                            ["..tostring(player).."]: "..tostring(fakemsg)
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message, "All")
+end)
 TrollingSection:NewButton("Insult Bypass", "Click to get tool", function()
     loadstring(game:HttpGet("https://the-shed.xyz/roblox/scripts/ChatBypass", true))()
 end)

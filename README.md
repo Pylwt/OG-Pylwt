@@ -62,6 +62,12 @@ end)
 PlayerSection:NewButton("Infinite Jump", "Press V", function()
     pcall(loadstring(game:HttpGet("https://pastebin.com/raw/2wgbZ6Xd"))) 
 end)
+PlayerSection:NewSlider("Walk Speed", "Choose your walk speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+PlayerSection:NewSlider("Jump Power", "Choose your jump power", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
 local PlayerSection = Player:NewSection("Visuals")
 PlayerSection:NewButton("Korblox", "Click to get korblox leg", function()
     local char = game:GetService("Players").LocalPlayer.Character

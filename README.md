@@ -292,12 +292,12 @@ end)
 TrollingSection:NewButton("AK-47", "Click to get tool", function()
     game:GetObjects("rbxassetid://149948769")[1].Parent=game.Players.LocalPlayer.Backpack
 end)
-TrollingSection:NewButton("Telekinisis Gun", "Click to get tool", function()
+TrollingSection:NewButton("Telekinisis Gun", "Press C", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/fauftxLe", true))()
 end)
 local TrollingSection = Trolling:NewSection("Broken Stuff")
-TrollingSection:NewButton("Rocket Spin", "Click to get tool", function()
-power = 1000 -- change this to make it more or less powerful
+TrollingSection:NewButton("Void Spin", "Click to get tool", function()
+power = 750 -- change this to make it more or less powerful
 game:GetService('RunService').Stepped:connect(function()
 game.Players.LocalPlayer.Character.Head.CanCollide = false
 game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
@@ -310,6 +310,20 @@ bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
 bambam.Force = Vector3.new(power,0,power)
 bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 end)
+TrollingSection:NewButton("Undo Void Spin", "Click to get tool", function()
+    power = 0 -- change this to make it more or less powerful
+    game:GetService('RunService').Stepped:connect(function()
+    game.Players.LocalPlayer.Character.Head.CanCollide = false
+    game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+    game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+    end)
+    wait(.1)
+    local bambam = Instance.new("BodyThrust")
+    bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    bambam.Force = Vector3.new(power,0,power)
+    bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    end)
 TrollingSection:NewButton("Chat Spoofer", "Click to get tool", function()
     loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
 end)

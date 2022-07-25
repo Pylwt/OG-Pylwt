@@ -403,6 +403,9 @@ notifSound.PlayOnRemove = true
 notifSound:Destroy()
 game.StarterGui:SetCore("SendNotification", {Title = "feFlip", Text = "feFlip loaded successfully!", Icon = "rbxassetid://505845268", Duration = 5, Button1 = "Okay"})
 end)
+PlayerSection:NewButton("Animations", "Click to get tools", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Luciquad/bweq42/main/cheatersoulanimationchanger.lua'))()
+end)
 PlayerSection:NewSlider("Walk Speed", "Choose your walk speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
@@ -664,10 +667,13 @@ end)
 TrollingSection:NewButton("Chat Spammer", "Click to get tool", function()
     while true do wait(0) 
 
-        local A_1 = "MADE BY PYLWT HUB" local A_2 = "All" 
+        local A_1 = "JOIN PYLWT HUB TODAY" local A_2 = "All" 
         local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) end
 end)
 local TrollingSection = Trolling:NewSection("Broken Stuff")
+TrollingSection:NewButton("Mouse Fling", "Press E", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Pylwt/mouse-fling/main/README.md", true))() 
+end)
 TrollingSection:NewButton("Crash Server", "WARNING", function()
     --// made my reestart
 --// fixed by daddy ewo
@@ -748,6 +754,35 @@ TrollingSection:NewButton("Freeze Time", "Press Left Ctrl", function()
     end
     game:GetService("UserInputService").InputBegan:connect(onKeyPress)
     game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+end)
+TrollingSection:NewButton("OOF Spam", "Click to get tool", function()
+    _G.enabled = true -- Re-execute to turn off
+_G.speed = 110 -- Keep around 100 or it wont play
+local RunService = game:GetService("RunService");
+local Players = game:GetService("Players");
+local LocalPlayer = game:GetService("Players").LocalPlayer;
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
+local Humanoid = Character:WaitForChild("Humanoid") or Character:FindFirstChildOfClass("Humanoid");
+local HRP = Humanoid.RootPart or Humanoid:FindFirstChild("HumanoidRootPart")
+if not Humanoid or not _G.enabled then
+   if Humanoid and Humanoid.Health <= 0 then
+       Humanoid:Destroy()
+   end
+   return
+end
+Humanoid:SetStateEnabled(Enum.HumanoidStateType.Dead, false)
+Humanoid.BreakJointsOnDeath = false
+Humanoid.RequiresNeck = false
+local con; con = RunService.Stepped:Connect(function()
+   if not Humanoid then return con:Disconnect() end
+   Humanoid:ChangeState(Enum.HumanoidStateType.Running)  -- Change state so not die
+end)
+LocalPlayer.Character = nil
+LocalPlayer.Character = Character
+task.wait(Players.RespawnTime + 0.1)
+while task.wait(1/_G.speed) do
+   Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+end
 end)
 TrollingSection:NewButton("Clones", "Click to get tool", function()
     loadstring(game:GetObjects('rbxassetid://7339698872')[1].Source)() 
@@ -906,5 +941,5 @@ local CreditsSection = Credits:NewSection("Server: .gg/QnbxmxMrJG")
 local CreditsSection = Credits:NewSection("Thank you for choosing Pylwt Hub!")
 local CreditsSection = Credits:NewSection("- - - - - - - - - - - - - - - - - - - - - - -")
 local CreditsSection = Credits:NewSection("Theme: OG Dark")
-local CreditsSection = Credits:NewSection("Last Update: 23th Of July 2022")
-local CreditsSection = Credits:NewSection("Version: 2.16")
+local CreditsSection = Credits:NewSection("Last Update: 25th Of July 2022")
+local CreditsSection = Credits:NewSection("Version: 2.17")

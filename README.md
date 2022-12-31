@@ -809,7 +809,6 @@ local TrollingSection = Trolling:NewSection("Avatar Forms")
 TrollingSection:NewButton("AMOGUS", "Press Q,C,F", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Pylwt/amogus/main/README.md", true))()
 end)
-
 TrollingSection:NewButton("Swords God", "Q,E,T,F,L,Z,X,C,V,B,N,1,2,3,4,5,6,7,8,9,0", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SwordSimIsGood/Sword-SG/main/Swords%20FE%20Starmd'))()
 end)

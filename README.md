@@ -352,7 +352,7 @@ end)
 local MainSection = Main:NewSection("Studio Editor")
 MainSection:NewButton("Dark Dex V1", "Click to get tool", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/scripts/main/DarkDexV3.lua"))(); 
-end)-
+end)
 MainSection:NewButton("Dark Dex V2", "Click to get tool", function()
     loadstring(game:GetObjects("rbxassetid://3025032531")[1].Source)()
 end)

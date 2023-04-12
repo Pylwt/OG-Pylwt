@@ -11,6 +11,211 @@ end)
 MainSection:NewButton("Aimbot V2", "Aimbot with FOV circle", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-Script/main/Aimbot%20Script.lua", true))()
 end)
+MainSection:NewButton("Aimbot V3", "Aimbot (Works in some games)", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
+end)
+MainSection:NewButton("Aimbot V4", "Aimbot (Works in some games)", function()
+    local teamCheck = false
+local fov = 150
+local smoothing = 1
+local RunService = game:GetService("RunService")
+local FOVring = Drawing.new("Circle")
+FOVring.Visible = true
+FOVring.Thickness = 1.5
+FOVring.Radius = fov
+FOVring.Transparency = 1
+FOVring.Color = Color3.fromRGB(255, 128, 128)
+FOVring.Position = workspace.CurrentCamera.ViewportSize/2
+local function getClosest(cframe)
+   local ray = Ray.new(cframe.Position, cframe.LookVector).Unit
+   
+   local target = nil
+   local mag = math.huge
+   
+   for i,v in pairs(game.Players:GetPlayers()) do
+       if v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("HumanoidRootPart") and v ~= game.Players.LocalPlayer and (v.Team ~= game.Players.LocalPlayer.Team or (not teamCheck)) then
+           local magBuf = (v.Character.Head.Position - ray:ClosestPoint(v.Character.Head.Position)).Magnitude
+           
+           if magBuf < mag then
+               mag = magBuf
+               target = v
+           end
+       end
+   end
+   
+   return target
+end
+loop = RunService.RenderStepped:Connect(function()
+   local UserInputService = game:GetService("UserInputService")
+   local pressed = --[[UserInputService:IsKeyDown(Enum.KeyCode.E)]] UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton2) --Enum.UserInputType.MouseButton2
+   local localPlay = game.Players.localPlayer.Character
+   local cam = workspace.CurrentCamera
+   local zz = workspace.CurrentCamera.ViewportSize/2
+   if pressed then
+       local Line = Drawing.new("Line")
+       local curTar = getClosest(cam.CFrame)
+       local ssHeadPoint = cam:WorldToScreenPoint(curTar.Character.Head.Position)
+       ssHeadPoint = Vector2.new(ssHeadPoint.X, ssHeadPoint.Y)
+       if (ssHeadPoint - zz).Magnitude < fov then
+           workspace.CurrentCamera.CFrame = workspace.CurrentCamera.CFrame:Lerp(CFrame.new(cam.CFrame.Position, curTar.Character.Head.Position), smoothing)
+       end
+   end
+   
+   if UserInputService:IsKeyDown(Enum.KeyCode.Delete) then
+       loop:Disconnect()
+       FOVring:Remove()
+   end
+end)
+end)
+MainSection:NewButton("Aimbot V5", "Aimbot (Works in some games)", function()
+    -- Make sure to edit the values below in a seperated script
+_G.priorityPart = "Head"
+_G.reactionDelay = 0 -- the lower the faster
+_G.sameTeam = true
+_G.toggleKey = "X" -- bind it to a familiar key, you will be using this alot
+_G.esp = true -- For esp
+_G.espColour = Color3.new(0,255,0)
+_G.throughwalls = false -- track through walls
+--
+_G.triggerbot = true
+_G.triggerBotDelay = 0
+-- edit values below to change tracking area's size
+_G.offsetSizeX = 0
+_G.offsetSizeY = 0
+_G.scaleSizeX = 0.1
+_G.scaleSizeY = 0.1
+--edit values below to change tracking area's position
+_G.offsetPosX = 0
+_G.offsetPosY = 0
+_G.scalePosX = 0.5
+_G.scalePosY = 0.5
+_G.trackingColour = Color3.new(0,255,0)
+_G.trackingThickness = 1
+---------------
+local camera = game.Workspace.CurrentCamera
+local lp = game.Players.LocalPlayer
+local rs = game:GetService("RunService")
+local uis = game:GetService("UserInputService")
+local raycastParams = RaycastParams.new()
+raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+function drawDot(frame, lifetime, x, y, colour)
+  local screengui = Instance.new("ScreenGui")
+  local frame = Instance.new("Frame")
+  frame.Position = UDim2.new(0,x,0,y)
+  frame.Size = UDim2.new(0,10,0,10)
+  frame.Parent = screengui
+  frame.BackgroundColor3 = colour
+  screengui.Parent = lp.PlayerGui
+  task.wait(lifetime)
+  screengui:Destroy()
+end
+function PointMatch(frame, x, y)
+  local pos = frame.AbsolutePosition
+  local size = frame.AbsoluteSize
+  if (y > pos.Y and y < pos.Y+size.Y) and (x > pos.X and x < pos.X+size.X) then
+      return true
+  end
+  return false
+end
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ScreenGui2 = Instance.new("ScreenGui")
+local Frame2 = Instance.new("Frame")
+local UIStroke = Instance.new("UIStroke")
+local TextLabel = Instance.new("TextLabel")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui2.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui2.ResetOnSpawn = false
+ScreenGui2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.Size = UDim2.new(_G.scaleSizeX, _G.offsetSizeX, _G.scaleSizeY, _G.offsetSizeY)
+Frame.Position = UDim2.new(0.5,0,0.5,0)
+Frame.AnchorPoint = Vector2.new(0.5,0.5)
+Frame2.Parent = ScreenGui2
+Frame2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame2.BackgroundTransparency = 1.000
+Frame2.Size = UDim2.new(1, 0, 1, 0)
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Size = UDim2.new(1, 0, 1, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 14.000
+TextLabel.TextTransparency = 1.000
+UIStroke.Color = _G.trackingColour
+UIStroke.Thickness = _G.trackingThickness
+UIStroke.Parent = Frame
+local val = 0.03333
+local isOn = false
+uis.InputBegan:Connect(function(input, gameproc)
+if input.KeyCode == Enum.KeyCode[_G.toggleKey] and not gameproc then
+isOn = not isOn
+TextLabel.TextTransparency = 0
+TextLabel.Text = tostring(isOn)
+task.wait(3)
+TextLabel.TextTransparency = 1
+end
+end)
+function characterShootable(model)
+   raycastParams.FilterDescendantsInstances = {lp.Character}
+   local ray = workspace:Raycast(camera.CFrame.Position, (model[_G.priorityPart].Position-camera.CFrame.Position), raycastParams)
+   return model == ray.Instance:FindFirstAncestorWhichIsA("Model")
+end
+rs.RenderStepped:Connect(function(t)
+   if (Frame.Size.X.Offset ~= _G.offsetSizeX or Frame.Size.Y.Offset ~= _G.offsetSizeY) or (Frame.Size.X.Scale ~= _G.scaleSizeX or Frame.Size.Y.Scale ~= _G.scaleSizeY)  then
+       Frame.Size = UDim2.new(_G.scaleSizeX, _G.offsetSizeX, _G.scaleSizeY, _G.offsetSizeY)
+   end
+   if (Frame.Position.X.Offset ~= _G.offsetPosX or Frame.Position.Y.Offset ~= _G.offsetPosY) or (Frame.Position.X.Scale ~= _G.scalePosX or Frame.Position.Y.Scale ~= _G.scalePosY)  then
+       Frame.Position = UDim2.new(_G.scalePosX, _G.offsetPosX, _G.scalePosY, _G.offsetPosY)
+   end
+   if (UIStroke.Color ~= _G.trackingColour or UIStroke.Thickness ~= _G.trackingThickness) then
+       UIStroke.Color = _G.trackingColour
+       UIStroke.Thickness = _G.trackingThickness
+   end
+   for _, p in ipairs(game.Players:GetChildren()) do
+       if p ~= lp and ((_G.sameTeam and p.Team == lp.Team) or (not _G.sameTeam and p.Team ~= lp.Team))  then
+           local model = p.Character
+           if model and model:FindFirstChild("Humanoid") and not model:FindFirstChild("ForceField") and model.Humanoid.Health > 0 then
+               local vector, onscreen = camera:WorldToScreenPoint(model[_G.priorityPart].Position)
+               if isOn and onscreen and PointMatch(Frame, vector.X, vector.Y) then
+                   if _G.throughwalls or characterShootable(model)  then
+                       if _G.esp then
+                           drawDot(Frame, t, vector.X, vector.Y, Color3.new(255,0,0))
+                       end
+                       if _G.triggerbot then
+                           task.wait(_G.triggerBotDelay)
+                           mouse1click()
+                       end
+                       for i = 0.0, 0.9, 0.1 do
+                           if not isOn then
+
+                               break
+                           end
+                             
+                           local larp = camera.CFrame:Lerp(CFrame.lookAt(camera.CFrame.Position, model[_G.priorityPart].Position), i)
+                           camera.CFrame = larp
+                           local quickvec = camera:WorldToScreenPoint(model[_G.priorityPart].Position)
+                           if not PointMatch(Frame, quickvec.X, quickvec.Y) or not characterShootable(model) then
+                               break
+                           end
+                           task.wait(val+(_G.reactionDelay < 0 and 0 or _G.reactionDelay))
+                       end
+                       
+                   end
+               elseif onscreen and PointMatch(Frame2, vector.X, vector.Y) and _G.esp then
+                   drawDot(Frame2, t, vector.X, vector.Y, _G.espColour)
+               end
+           end
+      end
+     
+  end
+end)
+end)
 MainSection:NewButton("Silent Aim", "Press Ctrl", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Averiias/Universal-SilentAim/main/main.lua"))()
 end)
@@ -45,9 +250,123 @@ MainSection:NewButton("Btools V2", "Click to get tool", function()
 Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 3
 Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 4 
 end)
+
+MainSection:NewButton("Btools V3", "Click to get tool", function()
+    --[[
+    Unrestricted BTools
+    By: OpenGamerTips
+
+    Keybinds:
+    Press P for BTools
+    Press L to unlock the Workspace
+    Press K to enable the backpack/other core elements.
+]]--
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+mouse.KeyDown:connect(function(key)
+    key = string.lower(key)
+
+    if key == "p" then
+        for item = 1, 4 do
+            HopperBin = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+            HopperBin.BinType = item
+        end
+    elseif key == "l" then
+        function UnlockWorkspace(a)
+            for n,part in pairs(a:GetChildren()) do
+                if(part:IsA("BasePart")) then 
+                    part.Locked = false 
+                end
+                UnlockWorkspace(part)
+            end
+        end
+        UnlockWorkspace(workspace)
+    elseif key == "k" then
+        local StarterGui = game:GetService("StarterGui")
+        StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, true)
+    end
+end) 
+end)
+MainSection:NewButton("Btools V4", "Click to get tool", function()
+    --[[
+A distribution of https://wearedevs.net/scripts
+Last updated August 2, 2021
+
+Description: Gives your player the old system of building tools
+
+Instruction: Inject this script into any game using a Lua executor like JJSploit. 
+]]
+backpack = game:GetService("Players").LocalPlayer.Backpack
+hammer = Instance.new("HopperBin")
+hammer.Name = "Hammer"
+hammer.BinType = 4
+hammer.Parent = backpack
+cloneTool = Instance.new("HopperBin")
+cloneTool.Name = "Clone"
+cloneTool.BinType = 3
+cloneTool.Parent = backpack
+grabTool = Instance.new("HopperBin")
+grabTool.Name = "Grab"
+grabTool.BinType = 2
+grabTool.Parent = backpack 
+end)
+MainSection:NewButton("Btools V5", "Click to get tool", function()
+    --[[
+    Unrestricted BTools
+	By: OpenGamerTips
+
+	Keybinds:
+	Press P for BTools
+	Press L to unlock the Workspace
+	Press K to enable the backpack/other core elements.
+]]--
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+mouse.KeyDown:connect(function(key)
+    key = string.lower(key)
+
+	if key == "p" then
+		for item = 1, 4 do
+			HopperBin = Instance.new("HopperBin", game.Players.LocalPlayer.Backpack)
+			HopperBin.BinType = item
+		end
+	elseif key == "l" then
+		function UnlockWorkspace(a)
+			for n,part in pairs(a:GetChildren()) do
+				if(part:IsA("BasePart")) then 
+					part.Locked = false 
+				end
+				UnlockWorkspace(part)
+			end
+		end
+		UnlockWorkspace(workspace)
+	elseif key == "k" then
+		local StarterGui = game:GetService("StarterGui")
+		StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, true)
+	end
+end) 
+end)
+MainSection:NewButton("Btools V6", "Click to get tool", function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/BTools.txt"))() 
+end)
 local MainSection = Main:NewSection("Studio Editor")
-MainSection:NewButton("DarkDexV3", "Click to get tool", function()
+MainSection:NewButton("Dark Dex V1", "Click to get tool", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/scripts/main/DarkDexV3.lua"))(); 
+end)-
+MainSection:NewButton("Dark Dex V2", "Click to get tool", function()
+    loadstring(game:GetObjects("rbxassetid://3025032531")[1].Source)()
+end)
+MainSection:NewButton("Dark Dex V3", "Click to get tool", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpaceSpiffer/Scripts/main/Script4", true))() 
+end)
+MainSection:NewButton("Dark Dex V4", "Click to get tool", function()
+    loadstring(game:GetObjects("rbxassetid://418957341")[1].Source)() 
+end)
+MainSection:NewButton("Dark Dex V5", "Click to get tool", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SpaceSpiffer/Scripts/main/Script5", true))() 
+end)
+MainSection:NewButton("Dark Dex V6", "Click to get tool", function()
+    loadstring(game:HttpGet("https://controlc.com/6f4f9d2a", true))() 
 end)
 local Player = Window:NewTab("Player")
 local PlayerSection = Player:NewSection("Player Section")
@@ -838,6 +1157,11 @@ end)
 
 local Games = Window:NewTab("Games")
 local GamesSection = Games:NewSection("Join the game you want & click the buttons below")
+
+GamesSection:NewButton("Prison Life", "You must be in the game for it to work", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/wMagw9Cn", true))()
+end)
+
 GamesSection:NewButton("Prison Life", "You must be in the game for it to work", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/wMagw9Cn", true))()
 end)
@@ -1123,5 +1447,11 @@ local CreditsSection = Credits:NewSection("Thank you for choosing Cosmos Hub!")
 local CreditsSection = Credits:NewSection("- - - - - - - - - - - - - - - - - - - - - - -")
 local CreditsSection = Credits:NewSection("Theme: OG Dark")
 local CreditsSection = Credits:NewSection("Creation Date: 12th Of July 2022")
-local CreditsSection = Credits:NewSection("Last Update: 1st Of January 2022")
-local CreditsSection = Credits:NewSection("Version: 4.0a")
+local CreditsSection = Credits:NewSection("Last Update: 12th Of April 2022")
+local CreditsSection = Credits:NewSection("Version: 4.1a")
+
+local _ = Window:NewTab("_")
+local _Section = _:NewSection("-SECRET SECTION-")
+_Section:NewButton("COMING SOON", "test button", function()
+    pcall(loadstring(game:HttpGet("https://pastebin.com/raw/2wgbZ6Xd")))
+end)

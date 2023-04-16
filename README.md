@@ -1,6 +1,13 @@
 -- OG Cosmos Hub
 -- Made by Cosmos#5091
 
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Welcome To Cosmos Hub - By Cosmos#5091", "DarkTheme")
 local Main = Window:NewTab("Main")
@@ -349,7 +356,7 @@ end)
 MainSection:NewButton("Btools V6", "Click to get tool", function()
     loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/BTools.txt"))() 
 end)
-local MainSection = Main:NewSection("Studio Editor")
+local MainSection = Main:NewSection("Studio Editor") 
 MainSection:NewButton("Dark Dex V1", "Click to get tool", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/scripts/main/DarkDexV3.lua"))(); 
 end)
@@ -368,6 +375,17 @@ end)
 MainSection:NewButton("Dark Dex V6", "Click to get tool", function()
     loadstring(game:HttpGet("https://controlc.com/6f4f9d2a", true))() 
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Player = Window:NewTab("Player")
 local PlayerSection = Player:NewSection("Player Section")
 PlayerSection:NewButton("Fly", "Press C", function()
@@ -797,6 +815,17 @@ PlayerSection:NewButton("Flying Orb", "Click to get tool", function()
 end)
 PlayerSection:NewButton("Force Field", "Click to get force field", function()
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Admin = Window:NewTab("Admin")
 local AdminSection = Admin:NewSection("Admin Commands")
 AdminSection:NewButton("CMD-X Admin Commands", "Click to get tool", function()
@@ -827,6 +856,17 @@ end)
 AdminSection:NewButton("Studio Editor", "Click to get tool", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/scripts/main/DarkDexV3.lua"))();
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Trolling = Window:NewTab("Trolling")
 local TrollingSection = Trolling:NewSection("All Players")
 TrollingSection:NewButton("Kill all", "You need a tool for this", function()
@@ -1045,6 +1085,17 @@ end)
 TrollingSection:NewButton("Galaxy Slasher", "You need to own Slasher first", function()
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/Toasty8i/slasher/main/slasher.lua'),true))()
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Tools = Window:NewTab("All Tools")
 local ToolsSection = Tools:NewSection("Here are all the tools we have")
 local ToolsSection = Tools:NewSection("Some wont work on a few games")
@@ -1155,6 +1206,16 @@ ToolsSection:NewButton("Draw", "Click to get tool", function()
     loadstring(game:HttpGet("https://pastebin.com/raw/1322re6a", true))()
 end)
 
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Games = Window:NewTab("Games")
 local GamesSection = Games:NewSection("Join the game you want & click the buttons below")
 
@@ -1263,6 +1324,17 @@ GamesSection:NewButton("Heights Sword Fight", "You must be in the game for it to
     loadstring(game:HttpGet("https://pastebin.com/raw/tsbVWZdP", true))()
 end)
 local GamesSection = Games:NewSection("None of the scripts above are mine!")
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Hubs = Window:NewTab("Hubs")
 local HubsSection = Hubs:NewSection("These Are Hubs From Other People!")
 HubsSection:NewButton("Top3k Hub", "Click to open hub, Credits to owner", function()
@@ -1324,6 +1396,17 @@ end)
 HubsSection:NewButton("Synapse Theme", "Might be outdated!", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Pylwt/synapse/main/theme", true))()
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Events = Window:NewTab("Events")
 local EventsSection = Events:NewSection("These Are Scripts For Roblox Events")
 local EventsSection = Events:NewSection("They can get you Badges and Avatar Items")
@@ -1363,6 +1446,17 @@ end)
 EventsSection:NewButton("Seventh Uncle, Ye Zehao Launch Party", "Click to enable", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/scripts/main/EventScripts.lua", true))()
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Premium = Window:NewTab("Premium")
 local PremiumSection = Premium:NewSection("Buy Cosmos Premium In Our Discord Server")
 PremiumSection:NewTextBox("Enter Premium Key", "Enter Premium Key", function(txt)
@@ -1438,6 +1532,17 @@ end)
 PremiumSection:NewButton("Cosmos Admin Commands", "Enter A Correct Key First", function()
     pcall(loadstring(game:HttpGet("https://pastebin.com/raw/2wgbZ6Xd")))
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
+
 local Credits = Window:NewTab("Credits")
 local CreditsSection = Credits:NewSection("Made By Tim")
 local CreditsSection = Credits:NewSection("Discord Username: Cosmos#5091")
@@ -1455,3 +1560,13 @@ local _Section = _:NewSection("-SECRET SECTION-")
 _Section:NewButton("COMING SOON", "test button", function()
     pcall(loadstring(game:HttpGet("https://pastebin.com/raw/2wgbZ6Xd")))
 end)
+
+-- OG Cosmos Hub
+-- Made by Cosmos#5091
+
+--░█████╗░░█████╗░░██████╗███╗░░░███╗░█████╗░░██████╗
+--██╔══██╗██╔══██╗██╔════╝████╗░████║██╔══██╗██╔════╝
+--██║░░╚═╝██║░░██║╚█████╗░██╔████╔██║██║░░██║╚█████╗░
+--██║░░██╗██║░░██║░╚═══██╗██║╚██╔╝██║██║░░██║░╚═══██╗
+--╚█████╔╝╚█████╔╝██████╔╝██║░╚═╝░██║╚█████╔╝██████╔╝
+--░╚════╝░░╚════╝░╚═════╝░╚═╝░░░░░╚═╝░╚════╝░╚═════╝░ 
